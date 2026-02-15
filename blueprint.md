@@ -1,103 +1,66 @@
-# Blueprint: Thermografie-Check Website
+# Blueprint: Thermografie-Check Webseite
 
-## 1. Überblick
+## 1. Project Overview
 
-**Zweck:** Eine professionelle, vertrauenswürdige One-Page-Website für ein lokales Nebengewerbe, das qualitative thermografische Inspektionen für Wohngebäude anbietet.
+**Purpose:** A professional, single-page informational website for "Thermografie-Check," a service specializing in thermographic inspections of residential buildings to identify heat loss.
 
-**Zielgruppe:** Hausbesitzer von Ein- und kleinen Mehrfamilienhäusern, die eine Entscheidungsgrundlage vor Sanierungsmaßnahmen (Dämmung, Fenster, Heizung) suchen.
+**Target Audience:** Homeowners in the Düsseldorf, Aachen, Köln, and Bonn region who are planning renovations, experiencing issues like drafts, or want an initial assessment of their property's energy efficiency.
 
-**Sprache:** Deutsch
-
-**Ton:** Kompetent, ruhig, lokal, nicht verkäuferisch.
+**Core Goal:** To generate qualified customer inquiries by clearly presenting the service, its value, its limitations, and providing clear contact options. The site aims to build trust through transparency, professionalism, and a regional focus.
 
 ---
 
-## 2. Projekt-Struktur & Design
+## 2. Implemented Features & Design
 
-### **Dateien**
-- `index.html`: Die Hauptseite mit der gesamten Inhaltsstruktur.
-- `style.css`: Das Stylesheet für ein professionelles, warmes und einladendes Design.
-- `blueprint.md`: Diese Datei.
+This section outlines the current state of the application.
 
-### **Design-Philosophie**
-- **Farben:** Ein warmes, helles Farbschema.
-    - Hintergrund (`--bg`): Warmes Weiß (`#fdfdfc`)
-    - Karten/Sektionen (`--card`): Reines Weiß (`#ffffff`) mit dezentem Schatten.
-    - Text (`--text`): Dunkles Grau/Schwarz (`#1f2937`) für gute Lesbarkeit.
-    - Gedämpfter Text (`--muted`): Ein weicheres Grau (`#6b7280`).
-    - Akzente (`--accent`, `--accent2`): Warme, vertrauenswürdige Gelb- und Bernsteintöne (`#f59e0b`, `#fbbf24`), die an Wärme und Energie erinnern.
-- **Schriftart:** Eine saubere, moderne und gut lesbare Sans-Serif-Schrift (`ui-sans-serif, system-ui, ...`).
-- **Layout:** Klar strukturiert, großzügige Abstände, mobilfreundlich (responsive).
+### 2.1. Visual Design & Layout
 
----
+*   **Structure:** A single-page application (SPA) with a clear, linear flow.
+*   **Layout:** Modern, card-based design using CSS for a clean and organized look. The layout is responsive and mobile-friendly.
+*   **Color Palette:** A professional and trustworthy color scheme is used.
+*   **Typography:** Clear, legible fonts with a strong hierarchy to guide the user's attention.
+*   **Iconography:** Subtle use of icons (e.g., location pin, email envelope) to improve scannability and visual appeal.
+*   **Branding:** The brand name **"Thermografie-Check"** is consistently used in the header and as the main headline to establish a strong, unified identity.
 
-## 3. Inhalts-Sektionen (Aufbau in `index.html`)
+### 2.2. Core Sections & Content
 
-1.  **`<header>` (Kopfzeile)**
-    - **Logo & Markenname:** "Thermografie-Check" mit einem einfachen, passenden Logo.
-    - **Navigation (`<nav>`):** Anker-Links zu den Hauptsektionen:
-        - `Leistung`
-        - `Ablauf`
-        - `Preise`
-        - `Häufige Fragen`
-        - `Kontakt`
+1.  **Header:** Sticky navigation bar featuring the brand name **"Thermografie-Check"** and clear links to all key sections.
+2.  **Hero Section:**
+    *   **Headline (`<h1>`):** **"Thermografie-Check"** is the primary headline, clearly establishing the brand.
+    *   **Sub-headline:** A direct value proposition: "Wir zeigen Ihnen, wo Ihr Haus Wärme verliert." This follows the headline to explain the service's core benefit.
+    *   **Regional Focus:** A prominent "Service-Region" badge clearly defines the operational area (Düsseldorf, Aachen, Köln, Bonn).
+    *   **Trust Badges:** Highlights key value propositions: "Regional & Unabhängig," "Schnell," and "Transparent."
+3.  **Pricing Panel:** A quick-glance pricing summary card.
+4.  **Example Images Section:** A portfolio of thermographic images.
+5.  **Leistung (Services):** A clear "Included" vs. "Not Included" comparison.
+6.  **Ablauf (Process):** A step-by-step guide on how the inspection is conducted.
+7.  **Preise (Pricing):** A detailed breakdown of standard pricing and optional add-ons.
+8.  **FAQ Section:** An accordion-style FAQ to proactively answer common questions.
+9.  **Kontakt (Contact):** Direct contact information and a fully functional, automated contact form using **Formspree**.
+10. **Rechtlicher Hinweis & Impressum:** Legally required sections with professional, left-aligned formatting for readability.
+11. **Footer:** Contains copyright information and quick links.
 
-2.  **`Hero`-Sektion**
-    - **Titel (`<h1>`):** Eine klare Frage, die den Schmerzpunkt der Zielgruppe trifft: "Wo verliert Ihr Haus Wärme?"
-    - **Untertitel (`<p class="sub">`):** Eine prägnante Beschreibung des Service, die den Fokus auf "Sichtprüfung" und "Entscheidungshilfe" legt.
-    - **Badges:** Drei kurze, vertrauensbildende Merkmale: "Unabhängig", "Schnell", "Transparent".
-    - **Call-to-Action Buttons:**
-        - Primärer Button: "Termin anfragen" (verlinkt zur Kontaktsektion).
-        - Sekundärer Button: "Was Sie bekommen" (verlinkt zur Leistungssektion).
-    - **Grid (3-Spalten):** Kurze Zusammenfassung der Kernpunkte: "Was erkannt wird", "Was Sie erhalten", "Wichtig" (Abgrenzung).
+### 2.3. Technical Implementation
 
-3.  **`Leistung im Detail`-Sektion (`id="leistung"`)**
-    - **Titel:** "Leistung im Detail".
-    - **Zwei Spalten (`<div class="two">`):**
-        - **Enthalten:** Klare Auflistung dessen, was der Service beinhaltet (Innen-/Außenaufnahmen, Fokusbereiche, PDF-Bericht).
-        - **Nicht enthalten:** Deutliche Abgrenzung, was der Service NICHT ist (Energieausweis, Fördermittelberatung, etc.). Dies ist entscheidend zur Risikominimierung.
-
-4.  **`Ablauf`-Sektion (`id="ablauf"`)**
-    - **Titel:** "Ablauf".
-    - **Grid (3-Spalten):** Der Prozess in drei einfachen Schritten erklärt:
-        1.  Bedingungen prüfen
-        2.  Baseline-Scan
-        3.  Vergleichs-Scan
-
-5.  **`Preise`-Sektion (`id="preise"`)**
-    - **Titel:** "Preise".
-    - **Zwei Spalten (`<div class="two">`):**
-        - **Standard Wohnhaus:** Das Basis-Paket mit Preis und den wichtigsten Eckdaten (Fläche, Anfahrt, Lieferzeit).
-        - **Optionen:** Preise für Zusatzleistungen wie größere Flächen, Mehrfamilienhäuser und weitere Anfahrtswege.
-
-6.  **`Häufig gestellte Fragen`-Sektion (`id="faq"`)**
-    - **Titel:** "Häufig gestellte Fragen".
-    - **Accordion (`<details>`):** Die vier wichtigsten Fragen und Antworten, um Unsicherheiten abzubauen:
-        - Wann lohnt sich der Check?
-        - Kann man Einsparungen berechnen? (Wichtige Abgrenzung!)
-        - Welche Voraussetzungen gibt es?
-        - Datenschutz / Fotos?
-
-7.  **`Kontakt`-Sektion (`id="kontakt"`)**
-    - **Titel:** "Kontakt".
-    - **Zwei Spalten:**
-        - **Linke Spalte:** Anleitung, wie man am schnellsten eine Anfrage stellt (per E-Mail mit den wichtigsten Infos).
-        - **Rechte Spalte:** Ein einfaches (nicht-funktionales) Formular, das die benötigten Informationen visuell darstellt und zu einem "E-Mail senden" Button (`mailto:`) führt.
-
-8.  **`Hinweis (rechtlich & fachlich)`-Sektion (`id="recht"`)**
-    - **Titel:** "Hinweis (rechtlich & fachlich)".
-    - **Disclaimer-Text:** Ein klar formulierter Absatz, der die Leistung als "qualitative thermografische Sichtprüfung" definiert und von zertifizierten Beratungen abgrenzt. Dieser Text ist für den rechtlichen Schutz unerlässlich.
-
-9.  **`<footer>` (Fußzeile)**
-    - **Copyright:** "© [Jahr] Thermografie-Check".
-    - **Links:** Wiederholung der wichtigsten Links (Hinweis, Kontakt, Preise, Ablauf).
+*   **Frontend:** Built with modern, framework-less HTML5, CSS3, and JavaScript (ES6+).
+*   **Structure:** All files are organized in the `public/` directory.
+*   **Deployment:** The `firebase.json` and `.firebaserc` files are configured for easy deployment to Firebase Hosting.
+*   **Contact Form:** Integrated with **Formspree** for reliable, serverless email forwarding.
 
 ---
 
-## 4. Implementierungsplan
+## 3. Project History: Tasks Completed
 
-1.  **Struktur in `index.html` erstellen:** Alle oben genannten Sektionen mit den passenden HTML-Tags und IDs anlegen.
-2.  **Styling in `style.css` definieren:** Das Farbschema, die Schriftarten, das Layout und die responsiven Eigenschaften implementieren.
-3.  **Inhalte einfügen:** Alle deutschen Texte in die `index.html`-Struktur einpflegen.
-4.  **Verlinkungen prüfen:** Sicherstellen, dass alle internen Anker-Links und der `mailto:`-Link korrekt funktionieren.
-5.  **Finale Überprüfung:** Die Website auf verschiedenen Geräten testen und die Inhalte auf Klarheit und Korrektheit überprüfen.
+This section documents the development process.
+
+*   **[Done] Step 1: Initial Setup & Content:** Created the initial HTML structure, CSS styling, and content for all sections.
+*   **[Done] Step 2: Add Contact Info & Regional Targeting:** Embedded the provided email, phone number, and service region throughout the site.
+*   **[Done] Step 3: Implement Automated Email Form:** Replaced the `mailto:` link with a functional HTML form integrated with Formspree.
+*   **[Done] Step 4: Resolve Preview & Deployment Issues:** Configured `firebase.json` and `.firebaserc` to fix preview and deployment errors.
+*   **[Done] Step 5: Update Impressum to Kleinunternehmer:** Added the user's name, address, and the required VAT notice for a sole proprietor.
+*   **[Done] Step 6: Refine Legal Section Formatting:** Corrected the alignment of the "Impressum" and "Rechtlicher Hinweis" sections for a professional look.
+*   **[Done] Step 7: Finalize Branding and Headline Hierarchy:**
+    *   Established **"Thermografie-Check"** as the consistent brand identifier in the header, the main `<h1>` headline, and the page title.
+    *   Refined the sub-headline to be a direct value proposition that supports the main brand message.
+*   **[Done] Step 8: Create and Maintain Project Blueprint:** Created and continuously updated this `blueprint.md` file to document the project's features and development process.
