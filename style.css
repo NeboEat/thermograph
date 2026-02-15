@@ -412,6 +412,41 @@ footer {
     color: #d97706;
 }
 
+#portfolio {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.portfolio-item {
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    background-color: var(--card);
+}
+
+.portfolio-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+}
+
+.portfolio-text {
+    padding: 1rem;
+}
+
+.portfolio-text h3 {
+    margin-top: 0;
+    font-size: 1.1rem;
+}
+
+.portfolio-text p {
+    margin-bottom: 0;
+    font-size: 0.9rem;
+    color: var(--muted);
+}
+
 @media (max-width: 920px) {
     .hero {
         grid-template-columns: 1fr;
