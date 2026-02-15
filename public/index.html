@@ -33,19 +33,15 @@
     .wrap{max-width:1040px;margin:0 auto;padding:22px}
     header{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:10px 0 18px}
     .brand{display:flex;align-items:center;gap:10px;text-decoration:none}
-    .logo{
-      width:40px;height:40px;border-radius:12px;
-      background: linear-gradient(135deg, rgba(125,211,252,.9), rgba(167,139,250,.9));
-      box-shadow: var(--shadow);
-      position:relative;
-      overflow:hidden;
-    }
-    .logo:after{
-      content:"";
-      position:absolute;inset:-20px;
-      background: conic-gradient(from 180deg, rgba(255,255,255,.0), rgba(255,255,255,.35), rgba(255,255,255,0));
-      transform: rotate(25deg);
-      opacity:.55;
+    .logo {
+        width: 50px;
+        height: 50px;
+        border-radius: 12px;
+        background-image: url(logo.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        box-shadow: var(--shadow);
     }
     .brand b{font-size:15px;letter-spacing:.2px}
     .brand span{display:block;font-size:12px;color:var(--muted)}

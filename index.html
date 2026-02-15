@@ -5,159 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="Thermografische Wärmeverlust-Inspektion für Wohngebäude: Schwachstellen an Wänden, Fenstern und Anschlüssen sichtbar machen – als Entscheidungshilfe vor Sanierungen." />
   <title>Thermografie-Check | Wärmeverlust sichtbar machen</title>
-  <style>
-    :root{
-      --bg:#0b1220;
-      --card:#111a2e;
-      --muted:#a8b3cf;
-      --text:#e8eeff;
-      --line:rgba(255,255,255,.12);
-      --accent:#7dd3fc;
-      --accent2:#a78bfa;
-      --ok:#86efac;
-      --warn:#fbbf24;
-      --shadow: 0 20px 60px rgba(0,0,0,.35);
-      --radius: 18px;
-    }
-    *{box-sizing:border-box}
-    body{
-      margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
-      background: radial-gradient(1200px 500px at 20% -10%, rgba(125,211,252,.22), transparent 60%),
-                  radial-gradient(900px 500px at 80% 0%, rgba(167,139,250,.18), transparent 60%),
-                  var(--bg);
-      color:var(--text);
-      line-height:1.5;
-    }
-    a{color:inherit}
-    .wrap{max-width:1040px;margin:0 auto;padding:22px}
-    header{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:10px 0 18px}
-    .brand{display:flex;align-items:center;gap:10px;text-decoration:none}
-    .logo{
-      width:40px;height:40px;border-radius:12px;
-      background: linear-gradient(135deg, rgba(125,211,252,.9), rgba(167,139,250,.9));
-      box-shadow: var(--shadow);
-      position:relative;
-      overflow:hidden;
-    }
-    .logo:after{
-      content:"";
-      position:absolute;inset:-20px;
-      background: conic-gradient(from 180deg, rgba(255,255,255,.0), rgba(255,255,255,.35), rgba(255,255,255,0));
-      transform: rotate(25deg);
-      opacity:.55;
-    }
-    .brand b{font-size:15px;letter-spacing:.2px}
-    .brand span{display:block;font-size:12px;color:var(--muted)}
-
-    .nav{display:flex;gap:12px;flex-wrap:wrap}
-    .nav a{opacity:.9;text-decoration:none;font-size:13px;color:var(--muted)}
-    .nav a:hover{color:var(--text)}
-
-    .hero{
-      display:grid;
-      grid-template-columns: 1.15fr .85fr;
-      gap:18px;
-      padding:18px 0 8px;
-    }
-    .card{
-      background: linear-gradient(180deg, rgba(17,26,46,.92), rgba(17,26,46,.72));
-      border:1px solid var(--line);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-    }
-    .hero-left{padding:26px}
-    h1{margin:0 0 10px;font-size:34px;line-height:1.15;letter-spacing:-.3px}
-    .sub{color:var(--muted);font-size:15px;margin:0 0 18px;max-width:62ch}
-
-    .badges{display:flex;gap:10px;flex-wrap:wrap;margin:0 0 18px}
-    .badge{
-      padding:7px 10px;border-radius:999px;
-      border:1px solid var(--line);
-      background: rgba(255,255,255,.04);
-      font-size:12px;color:var(--muted)
-    }
-    .badge strong{color:var(--text);font-weight:600}
-
-    .cta-row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
-    .btn{
-      appearance:none;border:0;cursor:pointer;
-      padding:12px 14px;border-radius:14px;
-      font-weight:700;font-size:14px;
-      background: linear-gradient(135deg, rgba(125,211,252,.95), rgba(167,139,250,.95));
-      color:#081021;
-      box-shadow: 0 14px 30px rgba(125,211,252,.18);
-      text-decoration:none;display:inline-flex;align-items:center;gap:8px;
-    }
-    .btn:hover{filter:brightness(1.05)}
-    .btn.secondary{
-      background: rgba(255,255,255,.05);
-      color:var(--text);
-      border:1px solid var(--line);
-      box-shadow:none;
-      font-weight:600;
-    }
-    .fineprint{font-size:12px;color:var(--muted)}
-
-    .hero-right{padding:18px}
-    .panel{padding:16px;border-radius:16px;border:1px solid var(--line);background: rgba(255,255,255,.03)}
-    .price{display:flex;align-items:baseline;gap:10px;margin:0 0 6px}
-    .price b{font-size:30px}
-    .price span{color:var(--muted);font-size:13px}
-    ul{margin:10px 0 0 18px;color:var(--muted)}
-    li{margin:6px 0}
-
-    .grid{
-      display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap:14px;
-      margin:14px 0 0;
-    }
-    .tile{padding:16px}
-    .tile h3{margin:0 0 6px;font-size:15px}
-    .tile p{margin:0;color:var(--muted);font-size:13px}
-    .kpi{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
-    .kpi .pill{font-size:12px;border:1px solid var(--line);border-radius:999px;padding:6px 10px;color:var(--muted);background: rgba(255,255,255,.03)}
-
-    section{margin:16px 0 0}
-    .section-card{padding:22px}
-    .section-title{display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin:0 0 8px}
-    .section-title h2{margin:0;font-size:18px}
-    .section-title span{font-size:12px;color:var(--muted)}
-
-    .two{display:grid;grid-template-columns: 1fr 1fr;gap:14px}
-    .callout{padding:16px;border-radius:16px;border:1px solid var(--line);background: rgba(255,255,255,.03)}
-    .callout h3{margin:0 0 6px;font-size:14px}
-    .callout p{margin:0;color:var(--muted);font-size:13px}
-
-    details{border:1px solid var(--line);border-radius:14px;padding:12px 14px;background: rgba(255,255,255,.03)}
-    details+details{margin-top:10px}
-    summary{cursor:pointer;font-weight:700}
-    details p{color:var(--muted);margin:8px 0 0;font-size:13px}
-
-    form{display:grid;gap:10px}
-    label{font-size:12px;color:var(--muted)}
-    input, textarea{
-      width:100%;padding:12px 12px;border-radius:14px;
-      border:1px solid var(--line);
-      background: rgba(0,0,0,.15);
-      color:var(--text);
-      outline:none;
-    }
-    input:focus, textarea:focus{border-color: rgba(125,211,252,.6)}
-    textarea{min-height:120px;resize:vertical}
-    .row{display:grid;grid-template-columns: 1fr 1fr;gap:10px}
-
-    footer{margin:16px 0 10px;color:var(--muted);font-size:12px;display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between}
-
-    @media (max-width: 920px){
-      .hero{grid-template-columns: 1fr;}
-      .grid{grid-template-columns: 1fr;}
-      .two{grid-template-columns: 1fr;}
-      .row{grid-template-columns: 1fr;}
-      h1{font-size:30px}
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="wrap">
@@ -182,7 +30,7 @@
       <div class="hero">
         <div class="card hero-left">
           <h1>Wo verliert Ihr Haus Wärme?</h1>
-          <p class="sub">Ich biete eine <b>thermografische Sichtprüfung</b> (innen & außen) an, um Wärmeverlustzonen, thermische Brücken und Undichtigkeiten an Fenstern/Anschlüssen sichtbar zu machen – als <b>Entscheidungshilfe</b> vor Sanierungen.</p>
+          <p class="sub">Wir biete eine <b>thermografische Sichtprüfung</b> (innen & außen) an, um Wärmeverlustzonen, thermische Brücken und Undichtigkeiten an Fenstern/Anschlüssen sichtbar zu machen – als <b>Entscheidungshilfe</b> vor Sanierungen.</p>
 
           <div class="badges">
             <div class="badge"><strong>Unabhängig</strong> · keine Verkaufsabsicht</div>
@@ -232,17 +80,31 @@
 
       <section class="card section-card" id="leistung">
         <div class="section-title">
-          <h2>Leistung im Detail</h2>
-          <span>Qualitative thermografische Sichtprüfung</span>
+          <h2>Leistung – “Das ist enthalten / nicht enthalten”</h2>
+          <span>Was Sie für Ihr Geld bekommen und was nicht</span>
         </div>
+
         <div class="two">
-          <div class="callout">
-            <h3>Enthalten</h3>
-            <p>Thermografie innen & außen, Fokus auf Außenwände, Fenster-/Türanschlüsse, Übergänge (Sockel, Deckenränder, Dachkante) sowie auffällige Bereiche. Lieferung: PDF mit Bildern & Kurzfazit.</p>
+          <div class="callout included">
+            <h3>Das ist enthalten</h3>
+            <ul>
+              <li>Vor-Ort-Termin (Innen- und Außenaufnahmen)</li>
+              <li>Baseline-Aufnahmen im normalen Heizbetrieb</li>
+              <li>Vergleichsaufnahmen nach kontrollierter Abkühlphase</li>
+              <li>PDF-Dokumentation (typisch: 8–15 Bilder)</li>
+              <li>Markierte Auffälligkeiten + kurze Priorisierung (High/Medium/Low)</li>
+            </ul>
           </div>
-          <div class="callout">
-            <h3>Nicht enthalten</h3>
-            <p>Keine Energieausweise, keine Fördermittelberatung, keine rechtliche/technische Zertifizierung, keine genaue Einspar- oder U‑Wert-Berechnung. Auf Wunsch Hinweis, wann eine zertifizierte Energieberatung sinnvoll ist.</p>
+
+          <div class="callout not-included">
+            <h3>Das ist NICHT enthalten</h3>
+            <ul>
+              <li>Keine zertifizierte Energieberatung / kein Energieausweis</li>
+              <li>Keine U-Wert-Berechnungen oder normbasierten Messungen</li>
+              <li>Keine Einspar- oder Kostenprognosen</li>
+              <li>Keine rechtsverbindlichen Bewertungen (z. B. GEG/EnEV)</li>
+              <li>Keine Fördermittelberatung oder Antragstellung</li>
+            </ul>
           </div>
         </div>
       </section>
@@ -288,24 +150,38 @@
 
       <section class="card section-card" id="faq">
         <div class="section-title">
-          <h2>FAQ</h2>
-          <span>Kurz & klar</span>
+            <h2>Häufig gestellte Fragen</h2>
+            <span>Antworten auf Ihre wichtigsten Fragen</span>
         </div>
         <details>
-          <summary>Wann lohnt sich der Check?</summary>
-          <p>Wenn Sie Zugluft oder kalte Wandbereiche spüren, Sanierung planen, neue Fenster/ Dämmung erwägen oder vor einer Wärmepumpe die Gebäudehülle besser verstehen möchten.</p>
+            <summary>Wann ist eine thermografische Inspektion sinnvoll?</summary>
+            <p>Ein Thermografie-Check ist besonders nützlich, wenn Sie unsicher sind, wo Sie mit einer Sanierung beginnen sollen. Typische Anwendungsfälle sind:
+                <ul>
+                    <li>Sie spüren Zugluft oder haben unerklärlich kalte Wände in bestimmten Räumen.</li>
+                    <li>Sie planen, Ihre Fenster auszutauschen oder die Fassade zu dämmen und möchten die dringendsten Bereiche identifizieren.</li>
+                    <li>Sie möchten vor dem Einbau einer Wärmepumpe sicherstellen, dass die Gebäudehülle keine großen Schwachstellen aufweist, die die Effizienz der neuen Heizung beeinträchtigen würden.</li>
+                    <li>Sie haben ein älteres Haus gekauft und möchten einen ersten Überblick über dessen energetischen Zustand erhalten.</li>
+                </ul>
+            </p>
         </details>
         <details>
-          <summary>Kann man daraus exakte Einsparungen berechnen?</summary>
-          <p>Nein. Die Thermografie zeigt qualitative Muster und Prioritäten. Für belastbare Kennzahlen (z. B. U‑Werte, Einsparprognosen, Fördermittel) ist eine zertifizierte Energieberatung erforderlich.</p>
+            <summary>Ist dieser Check eine Alternative zur offiziellen Energieberatung?</summary>
+            <p>Nein, und das ist ein wichtiger Unterschied. Mein Service ist eine <b>visuelle, qualitative Sichtprüfung</b>, die Ihnen eine schnelle und kostengünstige Orientierung bietet. Eine zertifizierte Energieberatung ist ein viel umfassenderes (und teureres) Gutachten, das für die Beantragung von staatlichen Fördermitteln (z.B. von KfW oder BAFA) zwingend erforderlich ist. Meine Inspektion hilft Ihnen bei der ersten Einschätzung, ersetzt aber nicht den zertifizierten Berater, wenn Sie Fördermittel nutzen möchten.</p>
         </details>
         <details>
-          <summary>Welche Voraussetzungen müssen erfüllt sein?</summary>
-          <p>Idealerweise ≥ 12°C Temperaturdifferenz innen/außen, keine Sonne auf der Fassade, trockene Oberfläche, wenig Wind. Frühmorgens oder abends ist oft am besten.</p>
+            <summary>Können Sie mir sagen, wie viel Geld ich sparen werde?</summary>
+            <p>Nein. Eine Berechnung von Einsparungen in Euro oder eine Angabe von U-Werten ist unseriös und rechtlich nur zertifizierten Energieberatern nach komplexen Berechnungen (z.B. gemäß Gebäudeenergiegesetz GEG) gestattet. Meine Analyse zeigt Ihnen, *wo* die Probleme liegen und wie gravierend sie im Verhältnis zueinander sind, aber nicht, wie hoch das exakte Einsparpotenzial in Zahlen ist.</p>
         </details>
         <details>
-          <summary>Datenschutz / Fotos?</summary>
-          <p>Es werden nur gebäudebezogene Thermobilder erstellt. Nachbargrundstücke werden vermieden. Bilder und Bericht werden auf Wunsch nach X Tagen gelöscht.</p>
+            <summary>Welche Bedingungen sind für gute Wärmebilder nötig?</summary>
+            <p>Für aussagekräftige Ergebnisse müssen die äußeren Bedingungen stimmen. Optimal sind:
+                <ul>
+                    <li><b>Großer Temperaturunterschied:</b> Zwischen innen und außen sollten mindestens 10–12 °C Unterschied herrschen. Daher sind Messungen hauptsächlich in der kalten Jahreszeit (ca. Oktober bis April) sinnvoll.</li>
+                    <li><b>Keine direkte Sonneneinstrahlung:</b> Die Sonne heizt die Fassade auf und verfälscht die Ergebnisse. Messungen finden daher meist frühmorgens oder nach Sonnenuntergang statt.</li>
+                    <li><b>Trockenes Wetter und wenig Wind:</b> Regen und starker Wind kühlen die Fassade ungleichmäßig ab und können die Resultate beeinträchtigen.</li>
+                </ul>
+                Sollten die Bedingungen an einem vereinbarten Termin nicht passen, suchen wir gemeinsam und kostenfrei nach einem besseren Zeitpunkt.
+            </p>
         </details>
       </section>
 
@@ -317,7 +193,7 @@
         <div class="two">
           <div class="callout">
             <h3>So geht’s am schnellsten</h3>
-            <p>Senden Sie mir kurz: Ort/PLZ, Gebäudetyp (EFH/MFH), grobe Größe, gewünschte Zeitfenster. Ich melde mich mit einem Terminvorschlag und prüfe die Wetter-/Temperaturbedingungen.</p>
+            <p>Senden Sie mir kurz: Ort/PLZ, Gebäudetyp (EFH/MFH), grobe Größe, gewünschte Zeitfenster. Wir melde uns mit einem Terminvorschlag und prüfe die Wetter-/Temperaturbedingungen.</p>
             <p class="fineprint" style="margin-top:10px">E-Mail/Telefon bitte hier eintragen. Platzhalter ersetzen.</p>
           </div>
           <div class="callout">
@@ -355,11 +231,12 @@
 
       <section class="card section-card" id="recht">
         <div class="section-title">
-          <h2>Hinweis (rechtlich & fachlich)</h2>
+          <h2>Rechtlicher Hinweis</h2>
           <span>Klare Abgrenzung</span>
         </div>
-        <p class="fineprint" style="font-size:13px">
-          Diese Leistung ist eine <b>qualitative thermografische Sichtprüfung</b>. Sie ersetzt keine zertifizierte Energieberatung, keinen Energieausweis, keine Fördermittelberatung und keine normbasierte Messung. Aussagen sind indikativ (relativ) und abhängig von Wetter, Temperaturdifferenz, Wind, Feuchte und Sonneneinstrahlung.
+        <p class="fineprint" style="font-size: 13px; text-align: center; max-width: 80ch; margin: auto;">
+            Diese Leistung ist eine <strong>qualitative thermografische Sichtprüfung</strong>. Sie dient als Orientierungshilfe und ersetzt keine zertifizierte Energieberatung, keinen Energieausweis, keine Fördermittelberatung und keine normbasierte Messung.<br><br>
+            Die Ergebnisse sind als indikativ (hinweisgebend) zu verstehen. Aus den Befunden können keine rechtsverbindlichen Ansprüche oder Garantien für Energieeinsparungen abgeleitet werden. Alle Aussagen sind zudem von den am Messtag herrschenden Wetter- und Temperaturbedingungen abhängig.
         </p>
       </section>
     </main>
