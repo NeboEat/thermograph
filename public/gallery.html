@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallerie - Thermografie</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="wrap">
+        <header>
+            <a class="brand" href="index.html" aria-label="Start">
+                <div class="logo" aria-hidden="true"></div>
+                <div>
+                    <b>haus-thermografie.de</b>
+                    <span>Wärmeverlust sichtbar machen · Region Düsseldorf, Aachen, Köln, Bonn</span>
+                </div>
+            </a>
+            <nav class="nav" aria-label="Navigation">
+                <a href="index.html#leistung">Leistung</a>
+                <a href="index.html#ablauf">Ablauf</a>
+                <a href="index.html#preise">Preise</a>
+                <a href="gallery.html">Bilder</a>
+                <a href="index.html#faq">FAQ</a>
+                <a href="index.html#kontakt">Kontakt</a>
+            </nav>
+        </header>
+
+        <main>
+            <section class="card section-card">
+                <div class="section-title">
+                    <h2>Gallerie</h2>
+                    <span>Beispiele unserer thermografischen Analysen</span>
+                </div>
+                <p>Hier sehen Sie eine Auswahl von Thermografie-Aufnahmen aus unserer Praxis. Die Bilder zeigen typische Schwachstellen wie Wärmebrücken, undichte Fenster und mangelhafte Dämmung.</p>
+
+                <div class="gallery-container">
+                    <div class="gallery-item">
+                        <img src="Fassade_Balkon.png" alt="Wärmeverlust an einer Fassade und einem Balkon">
+                        <div class="caption">Fassaden- und Balkonanalyse</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="Fenster_Undicht_Thermo.png" alt="Undichtes Fenster in der Thermografie-Analyse">
+                        <div class="caption">Fenster- und Anschlussdetails</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="Dach_Mit_Solar.jpg" alt="Dach mit Solar">
+                        <div class="caption">Dach mit Solaranlage</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="Fenster_Seitliche_Verlust.jpg" alt="Seitlicher Wärmeverlust am Fenster">
+                        <div class="caption">Seitlicher Wärmeverlust am Fenster</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="Fensterundicht.jpg" alt="Undichtes Fenster">
+                        <div class="caption">Undichtes Fenster</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="Hauseingang.jpg" alt="Wärmeverlust am Hauseingang">
+                        <div class="caption">Wärmeverlust am Hauseingang</div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <div>© <span id="y">2026</span> haus-thermografie.de · <a href="index.html#recht">Hinweis</a> · <a href="index.html#impressum">Impressum</a></div>
+            <div><a href="index.html#kontakt">Kontakt</a> · <a href="index.html#preise">Preise</a> · <a href="index.html#ablauf">Ablauf</a> · <a href="gallery.html">Bilder</a></div>
+        </footer>
+    </div>
+
+    <script>
+        const yearSpan = document.getElementById('y');
+        if (yearSpan) {
+            yearSpan.textContent = new Date().getFullYear();
+        } else {
+            const footerDiv = document.querySelector('footer div:first-child');
+            if(footerDiv) {
+                footerDiv.innerHTML = `© ${new Date().getFullYear()} haus-thermografie.de · <a href="index.html#recht">Hinweis</a> · <a href="index.html#impressum">Impressum</a>`;
+            }
+        }
+    </script>
+    <script src="main.js" defer></script>
+</body>
+</html>
