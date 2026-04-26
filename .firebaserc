@@ -1,5 +1,15 @@
 {
   "projects": {
     "default": "thermograph"
-  }
+  },
+  "targets": {
+    "thermograph": {
+      "hosting": {
+        "thermografie": [
+          "haus-thermografie.de"
+        ]
+      }
+    }
+  },
+  "etags": {}
 }
